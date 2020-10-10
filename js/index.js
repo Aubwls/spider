@@ -42,7 +42,10 @@ window.onload = function(){
         "<tr>"+
           "<th>"+obj[i].musicName+"</th>" +
           "<th>"+obj[i].author+"</th>" +
-          "<th>" +obj[i].url +"</th>" +
+          "<th>" +
+            "<a href='"+obj[i].url+"'  target='_blank'>点击下载</a>" +
+          "</th>" +
+          "<th>"+obj[i].extractionCode+"</th>" +
         "</tr>"
       )
     } 
