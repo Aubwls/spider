@@ -1,25 +1,17 @@
 window.onload = function(){
   $('#fiction .searchButton').on('click', function(){
     var keyword = $(this).parent().parent().children("input").val()
-    var params = {
-      "keyword":keyword
-    }
-    ajaxTemp('fiction/list',JSON.stringify(params),"post","fiction");
+    ajaxTemp('fiction/list',keyword,"get","fiction");
   }); 
   $('#music .searchButton').on('click', function(){
     var keyword = $(this).parent().parent().children("input").val()
-    var params = {
-      "keyword":keyword
-    }
-    ajaxTemp('music/list',JSON.stringify(params),"post","music");
+    ajaxTemp('music/list',keyword,"get","music");
   });
   var ajaxTemp = function(router,data,method,node){
     $.ajax({
       type:method,
-      url:"http://47.100.164.178:8081/api/spider/"+router,
-      data:data,
-      dataType:"json", 
-      contentType: "application/json;charset=UTF-8",
+      url:"http://localhost:8081/api/spider/"+router+"?keyword="+data,
+      // contentType: "application/json;charset=UTF-8",
       success(msg){
         var obj = msg.data;
         if (node == "music"){

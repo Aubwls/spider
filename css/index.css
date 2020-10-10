@@ -12,8 +12,10 @@ html,body,.wrapper{
 }
 .wrapper{
   width: 80%;
+  height:1000px;
   background-color: rgba(158, 154, 154, 0.8);
   margin: 0 auto;
+  overflow-y:auto;
 }
 .wrapper ul li.author{
   margin-left: 50%;
@@ -24,3 +26,7 @@ html,body,.wrapper{
   margin: 0 auto;
   margin-top: 10px;
 }
+/* #fiction,#music{
+  height:1000px; 
+  
+} */
