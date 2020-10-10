@@ -10,7 +10,8 @@ window.onload = function(){
   var ajaxTemp = function(router,data,method,node){
     $.ajax({
       type:method,
-      url:"http://localhost:8081/api/spider/"+router+"?keyword="+data,
+      url:"http://47.100.164.178:8081/api/spider/"+router+"?keyword="+data,
+      // url:"http://localhost:8081/api/spider/"+router+"?keyword="+data,
       // contentType: "application/json;charset=UTF-8",
       success(msg){
         var obj = msg.data;
