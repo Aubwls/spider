@@ -15,7 +15,7 @@ window.onload = function(){
       keyword:keyword
     }
     ajaxTemp('music/list',params,"post",function(msg){
-      appendFiction(msg.data)
+      appendMusic(msg.data)
     });
   });
   var appendFiction = function(obj){
