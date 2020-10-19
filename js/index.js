@@ -4,33 +4,20 @@ window.onload = function(){
     var params = {
       "keyword":keyword
     }
-    ajaxTemp('fiction/list',JSON.stringify(params),"post","fiction");
+    ajaxTemp('fiction/list',params,"post",function(msg){
+      appendFiction(msg.data)
+    });
+    
   }); 
   $('#music .searchButton').on('click', function(){
     var keyword = $(this).parent().parent().children("input").val()
     var params = {
       "keyword":keyword
     }
-    ajaxTemp('music/list',JSON.stringify(params),"post","music");
-  });
-  var ajaxTemp = function(router,data,method,node){
-    $.ajax({
-      type:method,
-      url:"http://47.100.164.178:8081/api/spider/"+router,
-      data:data,
-      dataType:"json", 
-      contentType: "application/json;charset=UTF-8",
-      success(msg){
-        var obj = msg.data;
-        if (node == "music"){
-          appendMusic(obj)
-        }
-        if (node == "fiction"){
-          appendFiction(obj)
-        }
-      }
+    ajaxTemp('music/list',params,"post",function(msg){
+      appendMusic(msg.data)
     });
-  }
+  });
   var appendFiction = function(obj){
     for(var i = 0 ; i < obj.length ; i++) {
       $('.fictionTable').append(
