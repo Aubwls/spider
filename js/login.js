@@ -128,6 +128,7 @@ window.onload = function(){
   }
 
   //验证码
+  codes='';// 重新初始化验证码
   function change() {
     code=$("#code");
     // 验证码组成库
@@ -140,7 +141,6 @@ window.onload = function(){
         'K','L','M','N','O','P','Q','R','S','T',
         'U','V','W','X','Y','Z'
     );
-    codes='';// 重新初始化验证码
     for(var i = 0; i<4; i++){
       // 随机获取一个数组的下标
       var r = parseInt(Math.random()*arrays.length);
@@ -151,6 +151,13 @@ window.onload = function(){
   }
   token = null;
   $('a.login').on("click",function(){
+    var code = $('.code').val();
+    if (code == null || code == ''){
+      alert("请输入验证码！")
+    }
+    if (codes != code){
+      alert("验证码不正确！")
+    }
     var mail = $('.mail').val();
     var password = $('.password').val();
     if (mail == null || mail == ''){
