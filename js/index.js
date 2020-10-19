@@ -14,30 +14,8 @@ window.onload = function(){
     var params = {
       keyword:keyword
     }
-<<<<<<< HEAD
     ajaxTemp('music/list',params,"post",function(msg){
-      appendMusic(msg.data)
-=======
-    ajaxTemp('music/list',JSON.stringify(params),"post","music");
-  });
-  var ajaxTemp = function(router,data,method,node){
-    $.ajax({
-      type:method,
-      //url:"http://47.100.164.178:8081/api/spider/"+router,
-      url:"http://localhost:8081/api/spider/"+router,
-      contentType: "application/json",
-      dataType:'json',
-      data:data,
-      success(msg){
-        var obj = msg.data;
-        if (node == "music"){
-          appendMusic(obj)
-        }
-        if (node == "fiction"){
-          appendFiction(obj)
-        }
-      }
->>>>>>> 046b3c5607548d1b07c41674f7b48208c43b3e94
+      appendFiction(msg.data)
     });
   });
   var appendFiction = function(obj){
