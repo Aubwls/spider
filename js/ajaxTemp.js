@@ -8,8 +8,8 @@ function getUrlParam(name) {
 }       
 
 var ajaxTemp = function(router,data,method,successHandle,errorHandle){
-  //var url = "http://47.100.164.178:8081/api/spider/"+router;
-  var url = "http://localhost:8081/api/spider/"+router;
+  var url = "http://47.100.164.178:8081/api/spider/"+router;
+  //var url = "http://localhost:8081/api/spider/"+router;
   var token = getUrlParam("token")
   if (token != null){
     url = url + "?token="+token;
